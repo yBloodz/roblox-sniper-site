@@ -10,7 +10,7 @@ wrapper1_button.addEventListener("click", async () => {
     wrapper1_label.textContent = "Checking...";
 
     try {
-        const res = await fetch(`/check?username=${username}`);
+        const res = await fetch(`${API_BASE}/check?username=${username}`);
         if (!res.ok && res.status === 404) {
             wrapper1_label.textContent = "Status: Available!";
             addLogLine(`Checked (Quick): ${username} -> Available`);
@@ -64,7 +64,7 @@ async function checkUsernameOnce(username) {
     if (isChecking) return;
     isChecking = true;
     try {
-        const res = await fetch(`/check?username=${encodeURIComponent(username)}`);
+        const res = await fetch(`${API_BASE}/check?username=${encodeURIComponent(username)}`);
         if (!res.ok && res.status === 404) {
             observeLabel.textContent = `Status: Available!`;
             addLogLine(`Checked: ${username} -> Available`);
@@ -162,7 +162,7 @@ function getRandomUsername(len, charsetIndex) {
 
 async function tryUsername(username) {
     try {
-        const res = await fetch(`/check?username=${encodeURIComponent(username)}`);
+        const res = await fetch(`${API_BASE}/check?username=${encodeURIComponent(username)}`);
         if (!res.ok && res.status === 404) {
             wr3Label.textContent = `Status: Available -> ${username}`;
             addLogLine(`AutoSniper found AVAILABLE: ${username}`);
@@ -262,7 +262,7 @@ function generateRandomUsername(len = 4) {
 
 async function checkAndFormatUsername(username) {
     try {
-        const res = await fetch(`/check?username=${encodeURIComponent(username)}`);
+        const res = await fetch(`${API_BASE}/check?username=${encodeURIComponent(username)}`);
         if (!res.ok && res.status === 404) {
             return `${username} (Available)`;
         }
@@ -283,4 +283,3 @@ async function loadRecentFinds() {
 }
 
 loadRecentFinds();
-
