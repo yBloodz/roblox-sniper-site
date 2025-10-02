@@ -1,3 +1,4 @@
+const API_BASE = 'https://af08b9cc-cf63-41b7-988c-05334f2d0033-00-3jy8zshs9g9ze.sisko.replit.dev/';
 const wrapper1_input = document.getElementById("wr1input");
 const wrapper1_button = document.getElementById("wr1button");
 const wrapper1_label = document.getElementById("wr1label");
@@ -282,3 +283,4 @@ async function loadRecentFinds() {
 }
 
 loadRecentFinds();
+
